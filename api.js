@@ -113,7 +113,10 @@ function filterResults(min, max) {
 
 function fillResultList(listings) {
     let list = [];
-    
+    if(listings.length === 0) {
+        searchResultEle.innerHTML = `<h2 class="result__not-found">Oops, We couldn't find any listings based on the provided criteria.</h2>`
+        return;
+    }
     for (const car of listings) {
         list.push(createResultHTML(car))
     }

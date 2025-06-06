@@ -446,6 +446,13 @@ input[type="range"]::-webkit-slider-thumb:hover {
   overflow: hidden;
 }
 
+.result__not-found {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .result:hover .result__img {
   transform: scale(1.01);
 }
