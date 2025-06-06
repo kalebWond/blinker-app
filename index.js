@@ -47,12 +47,20 @@ function onRangeClicked(e) {
 }
 
 function onTrackClicked(e) {
-  const positionPercent = Math.round((e.offsetX / e.target.clientWidth) * 100);
-  const value = (100000 * positionPercent) / 100;
-  if (positionPercent < 50) {
-    minRange.value = value;
-  } else {
-    maxRange.value = value;
-  }
-  updateSlider();
+    const positionPercent = Math.round((e.offsetX / e.target.clientWidth) * 100);
+    const value = (100000 * positionPercent) / 100;
+    if (positionPercent < 50) {
+        minRange.value = value;
+    } else {
+        maxRange.value = value;
+    }
+    updateSlider();
 }
+
+function openMenu() {
+    document.body.classList += " menu--open"
+}
+
+function closeMenu() {
+    document.body.classList.remove('menu--open')
+}  

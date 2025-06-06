@@ -11,7 +11,7 @@
   font-family: "Open Sans", sans-serif;
 }
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 ::selection {
@@ -38,8 +38,8 @@ ul {
 }
 
 .hidden {
-    display: none !important;
-    /* visibility: hidden;
+  display: none !important;
+  /* visibility: hidden;
     opacity: 0;
     z-index: -1; */
 }
@@ -76,7 +76,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 0;
+  padding: 28px 16px;
   z-index: 1;
 }
 
@@ -87,7 +87,7 @@ nav {
 
 .menu {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   max-width: 430px;
@@ -140,12 +140,85 @@ nav {
   left: 0;
 }
 
+/* MOBILE MENU */
+
+.btn__menu {
+  background-color: transparent;
+  font-size: 40px;
+  border: none;
+  color: #fff;
+  display: none;
+}
+
+.menu__backdrop {
+  position: fixed;
+  background-color: #242424;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transition: all 300ms ease;
+  opacity: 0;
+  transform: translate(100%);
+}
+
+.menu--open {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.menu--open .menu__backdrop {
+  visibility: visible !important;
+  opacity: 1;
+  transform: translate(0);
+}
+
+.menu--open .header__content, .menu--open .slider-container {
+    z-index: 0;
+}
+
+.menu__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu__list {
+  padding: 32px 0;
+}
+
+.menu__link {
+  color: white;
+  font-size: 40px;
+}
+
+.btn__menu--close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 8px;
+  color: white;
+}
+
+.menu--open .link__anchor--primary {
+    font-size: 40px;
+    padding: 32px 48px;
+}
+
+/* END of MOBILE MENU */
+
 .header__content {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 16px;
   z-index: 1;
 }
 
@@ -202,6 +275,11 @@ nav {
   color: var(--secondary-color);
 }
 
+.row--main {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .main__header {
   display: flex;
   justify-content: space-between;
@@ -228,19 +306,19 @@ nav {
 }
 
 .filter {
-    width: 30%;
-    min-width: 358px;
+  width: 30%;
+  min-width: 358px;
 }
 
 .filter__header {
-    font-size: 20px;
-    color: var(--black-color);
+  font-size: 20px;
+  color: var(--black-color);
 }
 
 .filter__value {
-    display: inline-block;
-    color: var(--primary-color);
-    margin-left: 8px;
+  display: inline-block;
+  color: var(--primary-color);
+  margin-left: 8px;
 }
 
 .slider-container {
@@ -254,6 +332,7 @@ input[type="range"] {
   width: 100%;
   pointer-events: none; /* prevent default pointer interaction */
   -webkit-appearance: none;
+  appearance: none;
   background: none;
   outline: none;
 }
@@ -317,95 +396,134 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* RESULTS */
 
 .results {
-    position: relative;
-    margin-top: 48px;
-    min-height: 100px;
+  position: relative;
+  margin-top: 48px;
+  min-height: 100px;
 }
 
 .results__overlay {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .fa-spinner {
-    font-size: 56px;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    color: transparent;
-    background-clip: text;
-    background-attachment: fixed;
-    animation: spin 1s infinite ease-in-out;
+  font-size: 56px;
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: transparent;
+  background-clip: text;
+  background-attachment: fixed;
+  animation: spin 1s infinite ease-in-out;
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .results__list {
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-between; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .result {
-    width: 100%;
-    max-width: 364px;
-    border-radius: 8px;
-    margin: 32px 12px 0;
-    box-shadow: 0px 4px 8px 0px rgba(41, 25, 71, 0.25);
-    overflow: hidden;
+  width: 100%;
+  max-width: 364px;
+  border-radius: 8px;
+  margin: 32px 12px 0;
+  box-shadow: 0px 4px 8px 0px rgba(41, 25, 71, 0.25);
+  overflow: hidden;
 }
 
 .result:hover .result__img {
-    transform: scale(1.01);
+  transform: scale(1.01);
 }
 
 .result__img-wrapper {
-    width: 100%;
-    max-height: 270px;
-    overflow: hidden;
+  width: 100%;
+  max-height: 270px;
+  overflow: hidden;
 }
 
 .result__img {
-    width: 100%;
-    height: 100%;
-    transition: transform 350ms ease;
+  width: 100%;
+  height: 100%;
+  transition: transform 350ms ease;
 }
 
 .result__content {
-    padding: 20px 16px;
+  padding: 20px 16px;
 }
 
 .result__name {
-    color: var(--primary-color);
-    font-size: 20px;
-    font-weight: 700;
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .result__details {
-    margin: 12px 0;
+  margin: 12px 0;
 }
 
 .detail-item {
-    color: gray;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 8px 0;
+  color: gray;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 0;
 }
 
 .detail-item span {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .result__price {
-    color: var(--primary-color);
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .btn__menu {
+    display: block;
+  }
+  .menu {
+    display: none;
+  }
+  .search-info__title {
+    font-size: 22px;
+  }
+  .search-info__param {
     font-size: 20px;
-    font-weight: 700;
+  }
+  .filter__header {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 680px) {
+  .main__header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .filter {
+    margin-top: 28px;
+  }
+  .filter__header {
+    display: flex;
+    justify-content: center;
+  }
+  .slider-container {
+    margin: 28px 0;
+  }
 }
