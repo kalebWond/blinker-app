@@ -24,9 +24,9 @@
      </div>
       <div class="header__content">
         <h1 class="header__title">Browse our cars</h1>
-        <form class="form">
+        <form onsubmit="searchCars(event)" class="form">
           <div class="input__wrapper">
-            <input type="text" class="form__input" name="car_search" placeholder="Search by Make, Model or Keyword"/>
+            <input type="text" class="form__input" id="search-input" name="car_search" placeholder="Search by Make, Model or Year"/>
             <button class="form__submit">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -38,8 +38,8 @@
       <div class="row container">
         <div class="main__header">
           <div class="search-info">
-            <h2 class="search-info__title">Search results for</h2>
-            <span class="search-info__param">"Toyota 2024"</span>
+            <h2 class="search-info__title">Search results:</h2>
+            <span class="search-info__param"></span>
           </div>
           <div class="filter">
             <h5 class="filter__header">
@@ -65,115 +65,14 @@
             <i class="fa-solid fa-spinner"></i>
           </div>
           <div class="results__list">
-            <div class="result">
-              <figure class="result__img-wrapper">
-                <img src="./assets/car.jpeg" alt="car-image" class="result__img">
-              </figure>
-              <div class="result__content">
-                <div class="result__name">2016 Toyota Kluger</div>
-                <ul class="result__details">
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gauge"></i>
-                    <span>260,000 km</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-car-side"></i>
-                    <span>Sedan</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gears"></i></i>
-                    <span>Automatic</span></li>
-                </ul>
-                <div class="result__price">$29,680</div>
-              </div>
-            </div>
             
-            <div class="result">
-              <figure class="result__img-wrapper">
-                <img src="./assets/car.jpeg" alt="car-image" class="result__img">
-              </figure>
-              <div class="result__content">
-                <div class="result__name">2016 Toyota Kluger</div>
-                <ul class="result__details">
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gauge"></i>
-                    <span>260,000 km</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-car-side"></i>
-                    <span>Sedan</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gears"></i></i>
-                    <span>Automatic</span></li>
-                </ul>
-                <div class="result__price">$29,680</div>
-              </div>
-            </div>
-
-            <div class="result">
-              <figure class="result__img-wrapper">
-                <img src="./assets/car.jpeg" alt="car-image" class="result__img">
-              </figure>
-              <div class="result__content">
-                <div class="result__name">2016 Toyota Kluger</div>
-                <ul class="result__details">
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gauge"></i>
-                    <span>260,000 km</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-car-side"></i>
-                    <span>Sedan</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gears"></i></i>
-                    <span>Automatic</span></li>
-                </ul>
-                <div class="result__price">$29,680</div>
-              </div>
-            </div>
-
-            <div class="result">
-              <figure class="result__img-wrapper">
-                <img src="./assets/car.jpeg" alt="car-image" class="result__img">
-              </figure>
-              <div class="result__content">
-                <div class="result__name">2016 Toyota Kluger</div>
-                <ul class="result__details">
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gauge"></i>
-                    <span>260,000 km</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-car-side"></i>
-                    <span>Sedan</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gears"></i></i>
-                    <span>Automatic</span></li>
-                </ul>
-                <div class="result__price">$29,680</div>
-              </div>
-            </div>
-            
-            <div class="result">
-              <figure class="result__img-wrapper">
-                <img src="./assets/car.jpeg" alt="car-image" class="result__img">
-              </figure>
-              <div class="result__content">
-                <div class="result__name">2016 Toyota Kluger</div>
-                <ul class="result__details">
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gauge"></i>
-                    <span>260,000 km</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-car-side"></i>
-                    <span>Sedan</span></li>
-                  <li class="detail-item">
-                    <i class="fa-solid fa-gears"></i></i>
-                    <span>Automatic</span></li>
-                </ul>
-                <div class="result__price">$29,680</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </main>
 
+    <script src="mock.js"></script>
+    <script src="api.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

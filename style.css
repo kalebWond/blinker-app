@@ -10,6 +10,9 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 ::selection {
   background-color: var(--secondary-color);
@@ -252,6 +255,7 @@ input[type="range"] {
   pointer-events: none; /* prevent default pointer interaction */
   -webkit-appearance: none;
   background: none;
+  outline: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -365,6 +369,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .result__img-wrapper {
     width: 100%;
+    max-height: 270px;
+    overflow: hidden;
 }
 
 .result__img {

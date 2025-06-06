@@ -24,6 +24,8 @@ const updateSlider = () => {
 
   minValueLabel.textContent = "$" + parseInt(minRange.value).toLocaleString();
   maxValueLabel.textContent = "$" + parseInt(maxRange.value).toLocaleString();
+
+  filterResults(minRange.value, maxRange.value);
 };
 
 minRange.addEventListener("input", updateSlider);
@@ -34,16 +36,14 @@ sliderTrack.addEventListener("click", onTrackClicked);
 updateSlider();
 
 function onRangeClicked(e) {
-  const positionPercent = Math.round((e.offsetX / e.target.clientWidth) * 100);
-  console.log("range clicked", positionPercent + "%");
-  const value = (maxRange.value * positionPercent) / 100;
-  console.log({value})
-  if (positionPercent < 50) {
-    minRange.value = value;
-  } else {
-    maxRange.value = value;
-  }
-  updateSlider();
+    const positionPercent = Math.round((e.offsetX / e.target.clientWidth) * 100);
+    const value = Math.round((positionPercent / 100) * (maxRange.value - minRange.value)) + parseInt(minRange.value);
+    if (positionPercent < 50) {
+        minRange.value = value;
+    } else {
+        maxRange.value = value;
+    }
+    updateSlider();
 }
 
 function onTrackClicked(e) {
