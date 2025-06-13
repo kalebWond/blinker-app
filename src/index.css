@@ -737,8 +737,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .skeleton__poster {
-  max-width: 270px;
+  width: 270px;
   height: 440px;
+  margin: 0 15px;
 }
 
 .skeleton__title {
