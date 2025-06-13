@@ -9,10 +9,10 @@ import axios from "axios";
 function MoviesPage() {
   const [search, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const currentPage = +search.get("page");
 
   async function searchMovies(value, page=1) {
     setIsLoading(true);
@@ -33,14 +33,13 @@ function MoviesPage() {
   }
 
   function onPageChange(page) {
-    setCurrentPage(page)
+    setSearchParams({ search: search.get("search"), page });
   }
 
   useEffect(() => {
     const query = search.get("search");
-    const page = search.get("page");
     if (query) {
-      searchMovies(query, page);
+      searchMovies(query, currentPage);
     }
     // eslint-disable-next-line
   }, [currentPage]);
@@ -53,7 +52,7 @@ function MoviesPage() {
           movies={movies}
           isLoading={isLoading}
           searchTerm={search.get("search")}
-          currentPage={currentPage}
+          currentPage={+currentPage}
           totalPages={Math.ceil(totalPages / 10)}
           onPageChange={onPageChange}
         />
