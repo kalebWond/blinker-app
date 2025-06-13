@@ -39,7 +39,6 @@ function MovieDetails() {
         { !isLoading && (
           <div className="row container row--main main-details">
           <div className="movie-details">
-            <div className="flex">
               <figure className="poster-wrapper">
                 <img src={movie.Poster} alt="" className="poster" />
               </figure>
@@ -49,7 +48,7 @@ function MovieDetails() {
                 <h3 className="details__type">{movie.Genre}</h3>
                 <p className="details__plot">{movie.Plot}</p>
                 <div className="actors-list">
-                  {movie.Actors.split(',').map((actor, i) => <span key={i} className="actor">{actor}</span>)}
+                  {movie.Actors?.split(',').map((actor, i) => <span key={i} className="actor">{actor}</span>)}
                 </div>
                 <div className="bottom-info">
                   <div className="info-row">
@@ -72,8 +71,6 @@ function MovieDetails() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="details-footer"></div>
           </div>
           <div className="movie-others">
             <h3 style={{color: "var(--black-color)"}}>Other movies</h3>

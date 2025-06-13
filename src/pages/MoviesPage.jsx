@@ -27,6 +27,7 @@ function MoviesPage() {
       setIsLoading(false);
     } catch (e) {
       setError(e);
+      setIsLoading(false);
     }
     // setTimeout(() => {
     // }, 1500);
