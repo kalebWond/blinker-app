@@ -41,4 +41,4 @@ export function parseSearchValue(input) {
   return query;
 }
 
-export const API_URL = `http://www.omdbapi.com/?&apikey=75ed821b`;
+export const API_URL = `https://www.omdbapi.com/?&apikey=75ed821b`;
